@@ -5,7 +5,7 @@ $(document).ready(function() {
   $('#play').click(function() {
     $('textarea').val('')
     console.log('Playback started')
-    var playTime = 0
+    var playTime = events[0].timeStamp
     // var previousTime = 0
     var playBack = setInterval(function() {
       var currEvent = events.shift()
@@ -21,7 +21,7 @@ $(document).ready(function() {
       }
       playTime += 100
       // previousTime = currEvent.timeStamp
-    }, 100)
+    }, 150)
   })
 
   $('textarea').keyup(function(e) {
