@@ -21,7 +21,7 @@ $(document).ready(function() {
       }
       playTime += 100
       // previousTime = currEvent.timeStamp
-    }, 150)
+    }, 100)
   })
 
   $('textarea').keyup(function(e) {
