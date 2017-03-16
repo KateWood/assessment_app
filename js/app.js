@@ -5,15 +5,23 @@ $(document).ready(function() {
   $('#play').click(function() {
     $('textarea').val('')
     console.log('Playback started')
+    var playTime = 0
+    // var previousTime = 0
     var playBack = setInterval(function() {
       var currEvent = events.shift()
       console.log(currEvent)
-      $('textarea').val(currEvent.textarea)
+      if (currEvent.timeStamp <= playTime) {
+        $('textarea').val(currEvent.textarea)
+      } else {
+        events.unshift(currEvent)
+      }
       if(events.length < 1) {
         clearInterval(playBack)
         console.log('Playback complete')
       }
-    }, 1000)
+      playTime += 100
+      // previousTime = currEvent.timeStamp
+    }, 100)
   })
 
   $('textarea').keyup(function(e) {
@@ -29,3 +37,6 @@ $(document).ready(function() {
     }
   })
 })
+
+// A tool to check out
+// https://codemirror.net/doc/manual.html#events
